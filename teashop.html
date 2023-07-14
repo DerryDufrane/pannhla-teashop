@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Pann Hla Tea Shop</title>
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  <style>
+    /* Existing styles */
+
+  @media screen and (max-width: 480px) {
+    /* Styles for screens up to 480px wide */
+    /* Modify the styles here to fit the content better on small screens */
+    body {
+      /* Example: Reduce font size */
+      font-size: 14px;
+    }
+  }
+  /* Existing styles */
+
+  
+
+  /* Adjust the styles for small screens */
+  @media screen and (max-width: 480px) {
+    /* Example: Adjust the size and position of the hamburger menu icon */
+    .menu-icon {
+      width: 20px;
+      height: 20px;
+      top: 10px;
+      right: 10px;
+    }
+  }
+   /* Reset default list styles */
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        font-weight: normal;
+  }
+
+  /* Style for navigation links */
+  ul li {
+    display: inline-block;
+  }
+
+  ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+
+  /* Optional: Add background color or other styles to highlight active link */
+  ul li a.active {
+    background-color: #f5f5f5;
+    color: #000;
+  }
+
+  /* Styles for desktop view */
+  @media (min-width: 768px) {
+    nav {
+      background-color: #f2f2f2;
+    }
+  }
+
+  /* Styles for phone view */
+  @media (max-width: 767px) {
+    nav {
+      background-color: #333;
+    }
+
+    ul li a {
+      color: #fff;
+    }
+  }
+
+    body {
+      font-family: "Helvetica", sans-serif;
+      background-color:#A67D5C;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #F5F5DC;
+      color: black;
+      padding: 20px;
+      text-align: center;
+
+    }
+    h1 {
+        font-family: 'Great Vibes', cursive;
+        font-size: 35px;
+        font-weight: bold;
+        line-height: 40px;
+    }
+    h2 {
+        font-family: 'Raleway', sans-serif;
+    }
+    h4 {
+        font-family: 'Dosis', sans-serif;
+        letter-spacing: 2px;
+        word-spacing: 5px;
+    }
+    p {
+        font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        font-weight: normal;
+    }
+    
+    
+    
+    section {
+      margin: 20px;
+    }
+    
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    height: auto;
+  }
+    .circle-crop {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .circle-crop img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+  .photo-container {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s, transform 0.8s;
+            display: inline-block;
+            margin: 10px;
+            padding: 5px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+  .photo-container.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+  .photo-container img {
+          
+            display: block;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .abt {
+            display: inline-block;
+            margin: 10px;
+            padding: 5px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        .abt.animate {
+            opacity: 1;
+            transform: translateY(0);
+    }
+        .abt img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px; /* Rounded corners within the frame */
+        }
+        .justified-text {
+            text-align: justify;
+  </style>
+  
+</head>
+<body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var photoContainers = document.querySelectorAll(".photo-container");
+
+      function checkScroll() {
+        var triggerPoint = window.innerHeight * 0.9; // Adjust the trigger point as needed
+
+        for (var i = 0; i < photoContainers.length; i++) {
+          var photoContainer = photoContainers[i];
+          var containerTop = photoContainer.getBoundingClientRect().top;
+
+          if (containerTop < triggerPoint) {
+            photoContainer.classList.add("animate");
+          }
+        }
+      }
+
+      window.addEventListener("scroll", checkScroll);
+    });
+    //about animation
+    document.addEventListener("DOMContentLoaded", function() {
+      var abtDiv = document.querySelector(".abt");
+
+      function checkScroll() {
+        var triggerPoint = window.innerHeight * 0.9; // Adjust the trigger point as needed
+
+        var divTop = abtDiv.getBoundingClientRect().top;
+
+        if (divTop < triggerPoint) {
+          abtDiv.classList.add("animate");
+        }
+      }
+
+      window.addEventListener("scroll", checkScroll);
+    });
+  </script>
+  <header>
+    <nav>
+  <ul>
+    <!-- Navigation links -->
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#m1">Menu</a></li>
+    <li><a href="#a1">About Us</a></li>
+    <li><a href="#c1">Contact</a></li>
+  </ul>
+    </nav>
+
+    <center>
+    <div class="circle-crop">
+      <img src="img/logo.jpg" alt="Logo" style="width: 200px; height: auto;">
+    </div>
+    </center>
+    <h1>Pann Hla</h1>
+    <h4>TEA SHOP</h4>
+    <p>Delicious food and great atmosphere</p>
+  </header>
+  
+  
+  
+  <section>
+    <h2>Today's Specials</h2>
+    <ul>
+      <li>Special 1: ကြက်ပေါင်းဆီချက်</li><br>
+      <li>Special 2: ဂျပန်တို့ဟူးထမင်း</li><br>
+      <li>Special 3: ပုစွန်ခြင်းလုံး</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2 id="m1">Our Menu</h2>
+      <div class="justified-text">
+    <p>ကန်လမ်းနားက စားစရာ သောက်စရာစုံတဲ့ ဆိုင်လေးတစ်ခု
+
+အင်းလျားကန်လမ်းမှာ
+မနက်ခင်း လမ်းလျှောက်ထွက်တဲ့သူတွေရော 🚶🏻
+နေ့လည်ဖက်လာအပန်းဖြေမယ့်သူတွေအတွက်ရော 👫အဆင်ပြေစေမယ့် ဆိုင်လေးတစ်ဆိုင်ပါ
+
+နာမည်လေးကတော့ Pan Hla Tea Shop တဲ့….
+
+Tea Shop ဆိုပေမယ့် တစ်ယောက်နဲ့တစ်ယောက်အကြိုက်မတူကြတဲ့ အားလုံးအတွက် အဆင်ပြေရွေးချယ်လိုရမယ့် စားစရာ ၊ သောက်စရာအစုံရနိုင်ပါတယ် 😍
+
+သောက်စရာအတွက် လက်ဖက်ရည် ၊☕️ကော်ဖီ၊ 🧃Fresh Juice ,🍧 Frappe, Milk Shake,🍨Ice Cream,🥤Smoothie မျိုးစုံရနိုင်တဲ့အပြင်
+
+အစားချစ်သူလေးတွေအတွက် မနက်စာအတွက်ဆို ဒင်ဆမ်း၊ မုန့်ဟင်းခါးကစလို ပလာတာအဆုံး ကြိုက်နှစ်သက်ရာ မနက်စာမျိုးစုံရွေးချယ်လိုရပြီး ….
+
+နေ့လည်စာအတွက်ဆိုရင်တော့ 
+အိန္ဒိယအစားအစာတွေစားမလား 🇮🇳
+တရုတ်အစားအစာတွေ စားမလား 🇨🇳
+မြန်မာဆန်ဆန်ထမင်းနဲ့ဟင်းပဲစားမလား ကြိုက်နှစ်သက်သလို ရွေးချယ်ပြီး စားလိုရပါတယ်…
+
+ဒါ့အပြင်နောက်ထပ် ပေါ့ပေါ့ပါးပါးစားစရာတွေအနေနဲ့ 🍲Appetizers, 🥟Snacks, Soup, 🥗Salad, 🍜Noodle, Kyay Ohh,🍛Steamed Rice,Fried Rice,အသီးအရွက်၊ အသားနဲ့ ပင်လယ်စာဟင်းလျာမျိုးစုံကိုလည်း ရွေးချယ်လို စားလိုရပါသေးတယ်…
+
+ကဲ ဒီတော့… မနက်ခင်းမှာ လမ်းလျှောက်ထွက်ရင်း ဗိုက်ဆာလို ဝင်စားစား..နေ့လည်ဘက် အပန်းဖြေရင်း လာပြီးစားစား…စားလိုရတယ်နော်…
+    </p>
+      </div>
+      <center>
+    <div class="photo-container">
+        <img src="img/menu1.jpg" alt="Photo 1" >
+    </div>
+    <div class="photo-container">
+        <img src="img/menu2.jpg" alt="Photo 2" >
+    </div>
+    <div class="photo-container">
+        <img src="img/menu3.jpg" alt="Photo 3" >
+    </div>
+    <div class="photo-container">
+        <img src="img/menu4.jpg" alt="Photo 4" >
+    </div>
+    <div class="photo-container">
+        <img src="img/menu5.jpg" alt="Photo 5">
+    </div>
+    <div class="photo-container">
+        <img src="img/menu6.jpg" alt="Photo 6">
+    </div>
+    <div class="photo-container">
+        <img src="img/menu7.jpg" alt="Photo 7">
+    </div>
+    <div class="photo-container">
+        <img src="img/menu8.jpg" alt="Photo 8">
+    </div>
+    <div class="photo-container">
+        <img src="img/menu9.jpg" alt="Photo 9">
+    </div>
+    <div class="photo-container">
+        <img src="img/menu10.jpg" alt="Photo 10">
+    </div>
+    <p>Enjoy a delightful atmosphere and delicious coffee at our café.</p>
+      </center>
+  </section>
+  
+  <section>
+    <h2 id="a1">About Us</h2>
+      <div class="justified-text">
+    <p>
+      နေရာကျယ်ကျယ်ဝန်းဝန်းနဲ့ အေးဆေး လက်ဖက်ရည် သောက်မယ်ဆိုရင်⁉️
+
+ပန်းလှ Tea Shop ကို လာခဲ့ဖိုဖိတ်ခေါ်ပါရစေ…
+
+ဆိုင်ကကျယ်ကျယ်ဝန်းဝန်းနဲ့မို အေးဆေးလက်ဖက်ရည်ထိုင်သောက်လိုရသလို…လက်ဖက်ရည်အေးဆေးသောက်ရင်း စကားလေးပြောရင်း ဖြတ်သန်းရတော့ ကိုယ့်ရဲ့ Tea Time လေးကို စိုပြေတာပေါ့..
+
+မနက်စာကို အစုံစားမလား …
+နေ့လည်စာအတွက် ဗိုက်ဝစေမယ့် one postion menu တွေ စားမလား…
+ညနေစာ လာစားစား…ပန်းလှ Tea Shop ကအဆင်ပြေစေမှာပါ…
+
+တစ်ယောက်တည်းလာလာ၊ သူငယ်ချင်းတွေနဲ့ လာလာ၊ မိသားစုနဲ့ အချိန်ပေးရင်း အေးဆေးလာထိုင်ပြီး စားချင်တာ စားလိုလည်း ရပါတယ်….
+
+    </p>
+      </div>
+    <center>
+    <div class="abt">
+        <img src="img/about2.jpg" alt="About 2">
+    </div>
+    </center>
+  </section>
+  
+  <section>
+    <h2 id="c1">Contact</h2>
+    
+    
+  <p>Address : No.1, Kan Street, Hlaing။</p>
+  <p>Township: Yangon</p>
+  <p>Phone No: 09-884204200,09-774204200</p>
+    
+  </section>
+  
+  <footer>
+    &copy; Pann Hla Tea Shop. All rights reserved.
+  </footer>
+</body>
+</html>
